@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shaik Silar | DevOps Engineer</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+<header>
+    <h2 class="logo">Silar.dev ⚡</h2>
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#experience">Experience</a>
+        <a href="#projects">Projects</a>
+        <a href="#monitor">Monitoring</a>
+        <a href="#contact">Contact</a>
+    </nav>
+</header>
+
+<section id="home" class="hero">
+    <h1>Hi, I'm <span>Shaik Silar</span></h1>
+    <p>Cloud Support Engineer | DevOps | AWS | Linux</p>
+
+    <div class="buttons">
+        <a href="https://github.com/silar512" target="_blank">GitHub</a>
+        <a href="https://www.linkedin.com/in/shaiksilar" target="_blank">LinkedIn</a>
+        <a href="Shaik_Silar_Resume.pdf" download class="resume-btn">Download Resume</a>
+    </div>
+</section>
+
+<section id="experience">
+    <h2>💼 Experience</h2>
+    <div class="card">
+        <h3>Software Support Engineer Intern</h3>
+        <p>SkillDzire | 2025 - Present</p>
+        <ul>
+            <li>✔ Maintained <b>99.9% uptime</b></li>
+            <li>✔ Automated tasks (↓30% manual effort)</li>
+            <li>✔ Incident triage & RCA</li>
+            <li>✔ Supported CI/CD pipelines</li>
+        </ul>
+    </div>
+</section>
+
+<section id="projects">
+    <h2>🚀 DevOps Projects</h2>
+
+    <div class="grid">
+        <div class="card">
+            <h3>AWS Monitoring System</h3>
+            <ul>
+                <li>✔ Real-time monitoring dashboard</li>
+                <li>✔ CloudWatch + Bash automation</li>
+                <li>✔ Improved uptime by <b>20%</b></li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h3>CI/CD Pipeline</h3>
+            <ul>
+                <li>✔ GitHub Actions deployment</li>
+                <li>✔ Reduced release time by <b>40%</b></li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<section id="monitor">
+    <h2>📊 Live DevOps Dashboard</h2>
+
+    <div class="dashboard">
+        <div class="metric"><h3>CPU</h3><p id="cpu">Loading...</p></div>
+        <div class="metric"><h3>Memory</h3><p id="memory">Loading...</p></div>
+        <div class="metric"><h3>Disk</h3><p id="disk">Loading...</p></div>
+    </div>
+</section>
+
+<section id="contact">
+    <h2>📬 Contact</h2>
+    <p>Email: shaiksilar.dev@gmail.com</p>
+</section>
+
+<footer>
+    <p>© 2026 Shaik Silar | FAANG-Level DevOps Portfolio</p>
+</footer>
+
+<script>
+async function loadMetrics() {
+    try {
+        const res = await fetch("monitor.json");
+        const data = await res.json();
+
+        document.getElementById("cpu").innerText = data.cpu;
+        document.getElementById("memory").innerText = data.memory;
+        document.getElementById("disk").innerText = data.disk;
+    } catch {
+        console.log("Monitoring error");
+    }
+}
+setInterval(loadMetrics, 3000);
+loadMetrics();
+</script>
+
+</body>
+</html>
