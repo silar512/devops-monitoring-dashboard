@@ -23,3 +23,6 @@ User → Nginx (Docker) → Web UI → Bash Script → System Metrics
 ```bash
 docker build -t devops-dashboard .
 docker run -d -p 80:80 devops-dashboard
+## 🌐 Live Demo
+
+👉 http://13.60.98.242
